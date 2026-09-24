@@ -1,0 +1,4 @@
+-r camera.txt
+
+scikit-image==0.25.2
+smplx==0.1.28

@@ -1,0 +1,9 @@
+name: Trophies
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - cmake
+  - git
+  - ffmpeg

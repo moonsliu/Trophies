@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trophies"
+version = "0.1.0"
+description = "Trophies: temporal reconstruction of places, humans, and cameras."
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "pillow",
+  "plyfile",
+  "opencv-python",
+  "pycocotools",
+  "pyyaml",
+  "scipy",
+  "trimesh",
+  "tyro",
+  "viser",
+]
+
+[tool.setuptools.packages.find]
+include = ["trophies*"]

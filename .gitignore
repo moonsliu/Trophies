@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments
+.env
+.venv/
+venv/
+env/
+
+# Large/local assets
+checkpoints/
+body_models/
+outputs/
+demo_output/
+third_party/*
+!third_party/dust3r
+!third_party/droid_slam
+!third_party/deva
+data/
+*.pth
+*.pt
+*.ckpt
+*.pkl
+*.npz
+*.npy
+
+# Runtime demo inputs and generated intermediates
+demo_data/
+
+# Editors
+.vscode/
+.idea/

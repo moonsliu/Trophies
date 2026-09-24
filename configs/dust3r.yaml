@@ -1,0 +1,18 @@
+dust3r:
+  model_path: checkpoints/DUSt3R_ViTLarge_BaseDecoder_512_dpt.pth
+  image_size: 512
+  schedule: linear
+  niter: 300
+  scenegraph_type: complete
+  winsize: 1
+  refid: 0
+  device: auto
+  save_network_output: false
+
+input:
+  image_dir: demo_data/quick_demo/frames
+  glob: "*"
+
+output:
+  dir: outputs/dust3r_demo
+  scene_name: scene

@@ -1,0 +1,11 @@
+[submodule "third_party/dust3r"]
+	path = third_party/dust3r
+	url = https://github.com/moonsliu/dust3r.git
+	branch = main
+[submodule "third_party/deva"]
+	path = third_party/deva
+	url = https://github.com/hkchengrex/Tracking-Anything-with-DEVA.git
+[submodule "third_party/droid_slam"]
+	path = third_party/droid_slam
+	url = https://github.com/moonsliu/DROID-SLAM.git
+	branch = trophies

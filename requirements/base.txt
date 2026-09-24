@@ -1,0 +1,17 @@
+numpy==1.26.4
+pillow==10.4.0
+opencv-python==4.10.0.84
+pyyaml
+scipy
+trimesh
+tyro
+viser
+tqdm
+matplotlib
+einops
+tensorboard
+gradio==4.44.1
+pyglet<2
+huggingface-hub[torch]>=0.22
+roma
+plyfile==1.0.3
