@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="TROPHIES: Temporal Reconstruction of Places, Humans, and Cameras from Multi-view Videos.">
+
+    <title>TROPHIES: Temporal Reconstruction of Places, Humans, and Cameras from Multi-view Videos</title>
+
+    <meta property="og:image" content="images/teaser.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1464">
+    <meta property="og:image:height" content="708">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TROPHIES: Temporal Reconstruction of Places, Humans, and Cameras from Multi-view Videos">
+    <meta property="og:description" content="A unified framework for reconstructing dynamic humans, static places, and cameras in a globally consistent 4D world.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TROPHIES: Temporal Reconstruction of Places, Humans, and Cameras from Multi-view Videos">
+    <meta name="twitter:description" content="Unified human-scene-camera reconstruction from multi-view videos.">
+    <meta name="twitter:image" content="images/teaser.png">
+
+    <link rel="icon" type="image/png" href="images/trophy-transparent.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center paper-title">
+                <b><img class="title-trophy" src="images/trophy.png" alt="TROPHIES logo"> TROPHIES: Temporal Reconstruction of Places, Humans,</b><br>
+                <b> and Cameras from Multi-view Videos</b>
+            </h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center author-block">
+                <ul class="list-inline">
+                    <li><a href="https://moonsliu.github.io/">Jinpeng Liu</a></li>
+                    <li><a href="https://home.yukang.win">Yukang Xu</a></li>
+                    <li><a href="https://davidliyutong.github.io/">Yutong Li</a></li>
+                    <li><a href="https://xingyul.github.io/">Xingyu Liu</a></li>
+                </ul>
+                National University of Singapore<br>
+                <span class="venue-label">CVPR 2026</span>
+            </div>
+        </div>
+
+        <div class="row resource-row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <ul class="nav nav-pills nav-justified resource-pills">
+                    <li>
+                        <a href="https://arxiv.org/abs/2606.02350">
+                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                            <h4><strong>arXiv</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/watch?v=qN3xON97XWk">
+                            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                            <h4><strong>Video</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/moonsliu/Trophies">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                            <h4><strong>Code</strong></h4>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="46124_supp.pdf">
+                            <img src="images/cvpr_front_page.png" height="50" alt="Supplement preview">
+                            <h4><strong>Supplement</strong></h4>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="row section-row">
+            <div class="col-md-10 col-md-offset-1">
+                <img src="images/teaser.png" width="80%" class="img-responsive center-block figure-frame" alt="TROPHIES teaser">
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <p class="text-justify figure-caption">
+                    <b>Overview of TROPHIES.</b> Given temporally synchronized video streams, TROPHIES jointly reconstructs dynamic humans,
+                    static scene geometry, and camera trajectories within a globally consistent 4D space. A human branch and a scene branch are coupled
+                    by global alignment and optimization, enforcing scale, contact, gravity, and temporal consistency in a shared world coordinate frame.
+                </p>
+            </div>
+        </div>
+
+        <div class="row section-row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Abstract</h3>
+                <p class="text-justify">
+                    Reconstructing humans and their surrounding environments in a globally consistent 4D space is essential for comprehensive perception.
+                    Existing pipelines often assume single-view inputs or decouple humans, scenes, and cameras, which makes coherent geometry, stable motion,
+                    and physically aligned trajectories difficult to recover. TROPHIES introduces a unified human-scene-camera reconstruction task from
+                    multi-view videos and jointly estimates dynamic humans, static scenes, and camera poses in one global coordinate frame. The framework
+                    combines temporal and spatial human reasoning, human-aware static scene reconstruction, and a global optimization stage that enforces
+                    scale consistency, contact priors, gravity alignment, and cross-view temporal coherence.
+                </p>
+            </div>
+        </div>
+
+        <div class="row section-row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Method</h3>
+                <img src="images/pipeline.png" width="100%" class="img-responsive center-block figure-frame" alt="TROPHIES pipeline">
+                <p class="text-justify figure-caption">
+                    <b>Pipeline overview.</b> TROPHIES decomposes reconstruction into a Scene Branch, a Human Branch, and a global Align-and-Optimization
+                    stage. The scene branch is a plug-and-play module for dense multi-view reconstruction backbones such as DUSt3R, MonST3R, and CUT3R;
+                    the human branch estimates temporally coherent SMPL body parameters from synchronized views; and the final optimization stage jointly
+                    refines humans, scenes, and cameras under consistent geometry and contact-aware constraints.
+                </p>
+                <!-- <div class="method-cards">
+                    <div class="method-card">
+                        <h4>Scene Branch</h4>
+                        <p>Human-aware attention suppresses dynamic human regions while preserving stable static background geometry and camera trajectories.</p>
+                    </div>
+                    <div class="method-card">
+                        <h4>Human Branch</h4>
+                        <p>Symmetric and anchor-referenced cross-view attention fuses synchronized observations into temporally coherent SMPL trajectories.</p>
+                    </div>
+                    <div class="method-card">
+                        <h4>Global Optimization</h4>
+                        <p>Sim(3) alignment, bundle adjustment, scale calibration, gravity, and contact terms place all components in one physical world.</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="row section-row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3 class="text-center">Demo Video</h3>
+                <p class="text-center section-intro">
+                    Project video for TROPHIES: unified reconstruction of places, humans, and cameras from multi-view videos.
+                </p>
+                <div class="youtube-embed">
+                    <iframe
+                        src="https://www.youtube.com/embed/qN3xON97XWk"
+                        title="TROPHIES project video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row section-row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3 class="text-center">Additional Qualitative Results</h3>
+                <p class="text-center section-intro">
+                    Supplementary material shows robust multi-view reconstruction across outdoor, indoor, studio, and sparse-camera settings.
+                </p>
+                <div class="supp-grid">
+                    <div>
+                        <img src="images/supp-outdoor-1.jpg" class="img-responsive figure-frame" alt="Outdoor multi-view supplementary result">
+                    </div>
+                    <div>
+                        <img src="images/supp-indoor.jpg" class="img-responsive figure-frame" alt="Indoor multi-view supplementary result">
+                    </div>
+                    <div>
+                        <img src="images/supp-studio.jpg" class="img-responsive figure-frame" alt="Studio supplementary result">
+                    </div>
+                    <div>
+                        <img src="images/supp-outdoor-2.jpg" class="img-responsive figure-frame" alt="Outdoor sparse-camera supplementary result">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row section-row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Discussion and Limitations</h3>
+                <img src="images/supp-failure-modes.jpg" width="100%" class="img-responsive center-block figure-frame" alt="Failure modes motivating SMPL representation">
+                <p class="text-justify figure-caption">
+                    TROPHIES uses SMPL to keep human motion structurally constrained and separated from static scene geometry. The supplement also notes
+                    current limitations: rapid egocentric viewpoint changes can reduce matching reliability; human-aware attention does not yet explicitly
+                    model other independently moving objects; and incomplete clothing masks may leave artifacts in reconstructed scenes.
+                </p>
+            </div>
+        </div>
+
+        <div class="row section-row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Citation</h3>
+                <pre class="bibtex"><code>@article{liu2026trophies,
+    title={TROPHIES: Temporal Reconstruction of Places, Humans, and Cameras from Multi-view Videos},
+    author={Liu, Jinpeng and Xu, Yukang and Li, Yutong and Liu, Xingyu},
+    journal={CVPR},
+    year={2026}
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="row section-row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Acknowledgements</h3>
+                <p class="text-justify">
+                    This work is partially supported by the Ministry of Education, Singapore, under the Academic Research Fund Tier 1 (FY 2025),
+                    National University of Singapore Robotics Seed Grant, and a research gift from Futurewei Technologies Inc. The website template was
+                    borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> and <a href="https://jonbarron.info/mipnerf360/">Jon Barron</a>.
+                </p>
+            </div>
+        </div>
+
+        <div class="row footer-row">
+            <div class="col-md-8 col-md-offset-2">
+                <small>Last updated: September 2026.</small>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
